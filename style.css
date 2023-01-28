@@ -14,7 +14,7 @@ hr{
     height: 450px;
     width: 450px;
     background-color: antiquewhite;
-    margin: 0 auto;
+    margin: 45px auto 0;
     display: flex;
     flex-wrap: wrap;
 }
