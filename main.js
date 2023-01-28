@@ -46,6 +46,9 @@ function setBox(){
     let i = parseInt(coords[0]);
     let c = parseInt(coords[1]);
 
+    if (gameBoard[i][c] != ' '){
+        return;
+    }
     gameBoard[i][c] = currentPlayer;
     this.innerText = currentPlayer;
 
@@ -55,4 +58,32 @@ function setBox(){
     else{
         currentPlayer= playerO;
     }
+    winner();
+}
+
+function winner(){
+    //horizontally
+    for (let i =0; i <3; i++){
+        if(gameBoard[i][0] ==  gameBoard[i][1] &&  gameBoard[i][1] ==  gameBoard[i][2] &&  gameBoard[i][0] != " "){
+            for (let c = 0; c < 3; c++){
+                let box = document.getElementById(i.toString() + "-" +c.toString())
+                box.classList.add("winner");
+            }
+            gameOver = true
+            return
+        }
+    }
+    // vertically
+    for (let i =0; i <3; i++){
+        if(gameBoard[0][i] ==  gameBoard[1][i] &&  gameBoard[1][i] ==  gameBoard[2][i] &&  gameBoard[i][0] != " "){
+            for (let c = 0; c < 3; c++){
+                let box = document.getElementById(c.toString() + "-" +i.toString())
+                box.classList.add("winner");
+            }
+            gameOver = true
+            return
+        }
+    }
+    // diagonally
+    // if(gameBoard[0][0] == gameBoard[1][1] == )
 }
