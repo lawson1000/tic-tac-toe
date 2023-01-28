@@ -1,6 +1,7 @@
 body{
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
+    
 }
 
 hr{
@@ -10,8 +11,8 @@ hr{
 }
 
 #game-board{
-    height: 450px;
-    width:450px;
+    height: 28.125rem;
+    width:28.125rem;
     background-color: antiquewhite;
     margin: 0 auto;
     display: flex;
@@ -54,3 +55,9 @@ hr{
     cursor: pointer;
     
 }
+
+/* @media(max-width: 500px){
+    #game-board{
+        height: 450px;
+        width:450px;
+} */

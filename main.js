@@ -4,6 +4,9 @@ var playerX = "X";
 var currentPlayer = playerO;
 var gameOver = false
 
+let playerOscore =0;
+let playerXscore =0;
+
 window.onload = function(){
     game();
 }
@@ -60,6 +63,7 @@ function setBox(){
     }
     winner();
 
+
     const btnRestart = document.getElementById("btn-play") 
     btnRestart.addEventListener("click" ,()=>{
         gameBoard=[
@@ -69,11 +73,9 @@ function setBox(){
         ]
         this.innerText = " ";
         gameOver=false
-        let box = document.getElementById(c.toString() + "-" +i.toString())
+        let box = document.getElementById(i.toString() + "-" +c.toString())
         box.classList.remove("winner");
     })        
-
-
 
 }
 
@@ -124,4 +126,17 @@ function winner(){
         gameOver = true
         return
        }
+
     }
+
+    // function scoreFun(){
+    //     if (gameOver == false && currentPlayer == playerX){
+    //         let score = document.getElementById(".score").innerHTML = "Player O wins";
+    //         alert( score.innerHTML )
+    //     }
+    //     else{
+    //         console.log("hiiii")
+    //     }
+   
+    // }
+
