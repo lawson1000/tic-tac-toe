@@ -59,6 +59,22 @@ function setBox(){
         currentPlayer= playerO;
     }
     winner();
+
+    const btnRestart = document.getElementById("btn-play") 
+    btnRestart.addEventListener("click" ,()=>{
+        gameBoard=[
+            [' ',' ',' '],
+            [' ',' ',' '],
+            [' ',' ',' '],
+        ]
+        this.innerText = " ";
+        gameOver=false
+        let box = document.getElementById(c.toString() + "-" +i.toString())
+        box.classList.remove("winner");
+    })        
+
+
+
 }
 
 function winner(){
