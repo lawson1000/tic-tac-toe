@@ -40,3 +40,17 @@ hr{
     background-color: aqua;
     color: red;
 }
+
+#btn-play{
+    margin: 2rem;
+    padding: 1.2rem;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+#btn-play:hover{
+    background-color: bisque;
+    transition: 1.4s;
+    cursor: pointer;
+    
+}

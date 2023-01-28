@@ -75,7 +75,7 @@ function winner(){
     }
     // vertically
     for (let i =0; i <3; i++){
-        if(gameBoard[0][i] ==  gameBoard[1][i] &&  gameBoard[1][i] ==  gameBoard[2][i] &&  gameBoard[i][0] != " "){
+        if(gameBoard[0][i] ==  gameBoard[1][i] &&  gameBoard[1][i] ==  gameBoard[2][i] &&  gameBoard[0][i] != " "){
             for (let c = 0; c < 3; c++){
                 let box = document.getElementById(c.toString() + "-" +i.toString())
                 box.classList.add("winner");
@@ -85,5 +85,27 @@ function winner(){
         }
     }
     // diagonally
-    // if(gameBoard[0][0] == gameBoard[1][1] == )
-}
+    if(gameBoard[0][0] == gameBoard[1][1] && gameBoard[1][1] == gameBoard[2][2] && gameBoard[0][0] != " " ){
+        for (let i = 0; i < 3; i++){
+            let box = document.getElementById(i.toString() + "-" +i.toString())
+            box.classList.add("winner");
+        }
+        gameOver = true
+        return
+       }
+// anti diagonal
+       if(gameBoard[0][2] == gameBoard[1][1] && gameBoard[1][1] == gameBoard[2][0] && gameBoard[0][2] != " " ){
+        for (let i = 0; i < 3; i++){
+            let box = document.getElementById("0-2")
+            box.classList.add("winner");
+
+            box = document.getElementById("1-1")
+            box.classList.add("winner");
+
+            box = document.getElementById("2-0")
+            box.classList.add("winner");
+        }
+        gameOver = true
+        return
+       }
+    }
