@@ -11,7 +11,8 @@ hr{
 }
 #turn{
     font-family: "Monserret","poppins";
-    font-size: 14px;    
+    font-size: 18px; 
+    margin-top: 2rem;   
 }
 #score{
     font-family: monospace;
