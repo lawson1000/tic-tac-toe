@@ -18,6 +18,12 @@ hr{
     font-family: monospace;
     font-size: 14px;
 }
+#announce{
+    text-transform: uppercase;
+    font-family: "poppins","Monserret","serif";
+    font-size: 14px;
+    color: rgba(252, 49, 49, 0.852);
+}
 
 #game-board{
     height: 405px;
