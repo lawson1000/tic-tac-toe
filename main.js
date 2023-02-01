@@ -7,7 +7,7 @@ var gameOver = false
 let countTurn = 0;
 let playerOscore =0;
 let playerXscore =0;
-
+let drawScore = 0;
 window.onload = function(){
     game();
 
@@ -65,19 +65,39 @@ function setBox(){
     winner();
     countTurn++
     console.log(countTurn)
+
+    // Player Turns
     if (gameOver != true){
-        document.getElementById("score").innerHTML ="Player " + currentPlayer + "'s Turn" 
+        document.getElementById("turn").innerHTML ="Player " + currentPlayer + "'s Turn" 
         }
     else{
-            document.getElementById("score").innerHTML ="Player " + previousPlayer + " Wins" 
+            document.getElementById("turn").innerHTML ="Player " + previousPlayer + " Wins" 
         }
     
+    // Draw and draw score
     if (countTurn == 9 && gameOver == false){
-        document.getElementById("score").innerHTML ="Draw! Play Again"
+        document.getElementById("turn").innerHTML ="Draw! Play Again"
+        drawScore++
+        document.getElementById("score").innerHTML =  "X: " + playerXscore + "<br>" +  "O: " + playerOscore  + "<br>" +  "Draw: " + drawScore;
         countTurn = 0;
         console.log(countTurn)    
     }
-        
+    
+    // score board
+    if(gameOver == true){
+        if (previousPlayer == "X"){
+            playerXscore++
+            document.getElementById("score").innerHTML =  "X: " + playerXscore + "<br>" +  "O: " + playerOscore + "<br>" +  "Draw: " + drawScore; 
+        }
+        else{
+            playerOscore++
+            document.getElementById("score").innerHTML =  "X: " + playerXscore + "<br>" +  "O: " + playerOscore + "<br>" +  "Draw: " + drawScore; 
+        }
+    }
+    else if(countTurn == 9 && gameOver == false) {
+    
+    }
+
     const btnRestart = document.getElementById("btn-play") 
     btnRestart.addEventListener("click" ,()=>{
         gameBoard=[
@@ -89,7 +109,8 @@ function setBox(){
         gameOver=false
         let box = document.getElementById(i.toString() + "-" +c.toString())
         box.classList.remove("winner");
-        document.getElementById("score").innerHTML = "Player " + currentPlayer + "'s Turn" 
+        document.getElementById("turn").innerHTML = "Player " + currentPlayer + "'s Turn" 
+        countTurn = 0;
         
     })        
 

@@ -9,19 +9,27 @@ hr{
     height: 3px;
     background-color: black;
 }
+#turn{
+    font-family: "Monserret","poppins";
+    font-size: 14px;    
+}
+#score{
+    font-family: monospace;
+    font-size: 14px;
+}
 
 #game-board{
-    height: 450px;
+    height: 405px;
     width: 450px;
     background-color: antiquewhite;
-    margin: 45px auto 0;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
 }
 .box{
     width: 147px;
-    height: 147px;
-    font-size: 150px;
+    height: 132px;
+    font-size: 130px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,10 +50,10 @@ hr{
 }
 
 #btn-play{
-    margin: 2rem;
-    padding: 1.2rem;
+    margin: 1.8rem;
+    padding: 1rem;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 #btn-play:hover{
@@ -57,42 +65,43 @@ hr{
 
 @media(max-width: 550px){
     #game-board{
-        height: 420px;
+        height: 375px;
         width:405px;
     }
     .box{
         width: 132px;
-        height: 137px;    
-        font-size: 135px;
+        height: 122px;    
+        font-size: 125px;
     }
     hr{
         width:400px;
     }
     #btn-play{
-        margin: 1.9rem;
-        padding: 1rem;
-        font-size: 18px;
+        margin: 1.7rem;
+        padding: 0.8rem;
+        font-size: 16px;
     }
     
 }
 
 @media(max-width: 400px){
     #game-board{
-        height: 405px;
+        height: 360px;
         width:375px;
     }
     .box{
         width: 122px;
-        height: 132px;    
-        font-size: 120px;
+        height: 117px;    
+        font-size: 110px;
     }
     hr{
         width:380px;
     }
+
     #btn-play{
-        margin: 1.8rem;
-        padding: 0.9rem;
-        font-size: 16px;
+        margin: 1.6rem;
+        padding: 0.7rem;
+        font-size: 15px;
     }
     
 }
