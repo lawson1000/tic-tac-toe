@@ -2,13 +2,15 @@ var gameBoard;
 var playerO = "O";
 var playerX = "X";
 var currentPlayer = playerO;
+var previousPlayer;
 var gameOver = false
-
+let countTurn = 0;
 let playerOscore =0;
 let playerXscore =0;
 
 window.onload = function(){
     game();
+
 }
 function game(){
     gameBoard=[
@@ -16,6 +18,7 @@ function game(){
         [' ',' ',' '],
         [' ',' ',' '],
     ]
+ 
 
     for(let i = 0; i<3; i++){
         for(let c =0; c<3 ; c++){
@@ -41,14 +44,10 @@ function setBox(){
     if(gameOver){
         return
     }
-    // else{
-    //     gameOver = true;
-    // }
 
     let coords = this.id.split("-")//i.e e.g "1-1" to ["1","1"]
     let i = parseInt(coords[0]);
     let c = parseInt(coords[1]);
-
     if (gameBoard[i][c] != ' '){
         return;
     }
@@ -57,13 +56,28 @@ function setBox(){
 
     if(currentPlayer == playerO){
         currentPlayer= playerX;
+        previousPlayer= playerO;
     }
     else{
         currentPlayer= playerO;
+        previousPlayer= playerX;
     }
     winner();
-
-
+    countTurn++
+    console.log(countTurn)
+    if (gameOver != true){
+        document.getElementById("score").innerHTML ="Player " + currentPlayer + "'s Turn" 
+        }
+    else{
+            document.getElementById("score").innerHTML ="Player " + previousPlayer + " Wins" 
+        }
+    
+    if (countTurn == 9 && gameOver == false){
+        document.getElementById("score").innerHTML ="Draw! Play Again"
+        countTurn = 0;
+        console.log(countTurn)    
+    }
+        
     const btnRestart = document.getElementById("btn-play") 
     btnRestart.addEventListener("click" ,()=>{
         gameBoard=[
@@ -75,11 +89,33 @@ function setBox(){
         gameOver=false
         let box = document.getElementById(i.toString() + "-" +c.toString())
         box.classList.remove("winner");
+        document.getElementById("score").innerHTML = "Player " + currentPlayer + "'s Turn" 
+        
     })        
 
 }
 
 function winner(){
+//  diagonal and anti diagonal 2ways
+    if(gameBoard[0][2] == gameBoard[1][1] && gameBoard[1][1] == gameBoard[2][0] && gameBoard[0][2] != " " &&
+    gameBoard[0][0] == gameBoard[1][1] && gameBoard[1][1] == gameBoard[2][2] && gameBoard[0][0] != " " ){
+     for (let i = 0; i < 3; i++){
+         let box = document.getElementById(i.toString() + "-" +i.toString())
+         box.classList.add("winner");
+
+         box = document.getElementById("0-2")
+         box.classList.add("winner");
+
+         box = document.getElementById("1-1")
+         box.classList.add("winner");
+
+         box = document.getElementById("2-0")
+         box.classList.add("winner");
+         
+     }
+     gameOver = true
+     return
+    }
     //horizontally
     for (let i =0; i <3; i++){
         if(gameBoard[i][0] ==  gameBoard[i][1] &&  gameBoard[i][1] ==  gameBoard[i][2] &&  gameBoard[i][0] != " "){
@@ -126,8 +162,8 @@ function winner(){
         gameOver = true
         return
        }
-
-    }
+       
+}
 
     // function scoreFun(){
     //     if (gameOver == false && currentPlayer == playerX){
